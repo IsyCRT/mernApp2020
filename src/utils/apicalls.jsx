@@ -2,7 +2,8 @@ import API from './api' // esto es para crear una instancia base
 //el export es para poder usar la funcion fuera es decir como un public
 export{
   login,
-  getAllPosts //la pongo para usarla
+  getAllPosts,
+  postNewUser //la pongo para usarla
 };
 
 function login(username, password) {
@@ -17,4 +18,13 @@ function login(username, password) {
 
 function getAllPosts() {
   return API.get('/posts').then(res => res.data);
+}
+
+function postNewUser(username, password, fullname, email, role) {
+  return API.post('/users', {
+    username,
+    password,
+    fullname,
+    email,
+    role }).then(result => result.data);
 }
