@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col, Card, CardTitle, Badge, CardBody, Table, Alert } from 'reactstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFeatherAlt } from "@fortawesome/free-solid-svg-icons";
-
+import { FaLeaf } from 'react-icons/fa';
 import { getAllPosts } from "../../utils/apicalls.jsx";
 import { getDateInStrFormat } from "../../utils/utils.jsx";
 class PostList extends Component {
@@ -33,7 +31,7 @@ class PostList extends Component {
                     <Alert color="dark">
                       <Row>
                         <Col>
-                          <CardTitle tag="h5"><FontAwesomeIcon icon={faFeatherAlt} /> {post.title}</CardTitle>
+                          <CardTitle tag="h5"><FaLeaf/> {post.title}</CardTitle>
                           <Card>
                             <CardBody>
                               <Row>
