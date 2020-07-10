@@ -3,6 +3,10 @@ import API from './api' // esto es para crear una instancia base
 export{
   login,
   getAllPosts,
+  getMyPosts,
+  deletePost,
+  postNewPost,
+  putExistingPost,
   postNewUser //la pongo para usarla
 };
 
@@ -20,6 +24,10 @@ function getAllPosts() {
   return API.get('/posts').then(res => res.data);
 }
 
+function getMyPosts(iduser) {
+  return API.get('/posts/all/'+iduser).then(res => res.data);
+}
+
 function postNewUser(username, password, fullname, email, role) {
   return API.post('/users', {
     username,
@@ -27,4 +35,21 @@ function postNewUser(username, password, fullname, email, role) {
     fullname,
     email,
     role }).then(result => result.data);
+}
+
+function deletePost(idpost) {
+  return API.delete('/posts/'+idpost).then(result => result.data);
+}
+//creando un post segun el esquema
+function postNewPost(iduser, title, description) {
+  return API.post('/posts', {
+    iduser,
+    title,
+    description}).then(result => result.data);
+}// el servidor me devuelve un resultado que la guardo en result
+
+function putExistingPost(idpost, title, description) {
+  return API.put('/posts/'+idpost, {
+    title,
+    description}).then(result => result.data);
 }

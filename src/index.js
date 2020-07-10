@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import HeaderApp from './components/HeaderApp';//para usar componentes
 import Signin from './components/Signin';
 import Signup from './components/Signup';
+import Home from './components/Home';
 import { HashRouter, Route } from 'react-router-dom';// hay que agregarlo
 
 ReactDOM.render(<HeaderApp />, document.getElementById('header'));
@@ -14,6 +15,7 @@ ReactDOM.render(<HashRouter>
       <div>
         <Route exact path="/" component={Signin} />
         <Route exact path="/signup" component={Signup} />
+        <Route exact path="/home" component={Home} />
       </div>
    </HashRouter >,
   document.getElementById('root')
